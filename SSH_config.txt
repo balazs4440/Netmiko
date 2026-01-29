@@ -1,0 +1,15 @@
+ena
+conf t
+int vlan 1
+ip add 192.168.40.219 255.255.255.0
+no shut
+exit
+ip domain-name SSH.hu
+crypto key generate rsa
+1024
+ip ssh ver 2
+username balazs priv 15 pass sshP455
+line vty 0 15
+transport input ssh
+login local
+exit

@@ -2,9 +2,9 @@ from netmiko import ConnectHandler
 
 kapcsolo = {
     "device_type": "cisco_ios",
-    "host": "192.168.40.133",
-    "username": "bali",
-    "password": "netmiko1234"
+    "host": "192.168.40.219",
+    "username": "balazs",
+    "password": "sshP455"
 }
 
 kapcsolat = ConnectHandler(**kapcsolo)

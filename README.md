@@ -5,4 +5,10 @@
 Egyszer volt, hol nem volt...
 
 1. Csatlakozás és prompt lekérdezés: simple.py
+
 2. Biztonságos csatlakozás és show: secu_show.py
+
+3. egyszerű lekérdezések, beállítások: feladatok_001.py
+
+
+

@@ -1,5 +1,6 @@
 ena
 conf t
+hostname SW-PB
 int vlan 1
 ip add 192.168.40.219 255.255.255.0
 no shut

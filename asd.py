@@ -21,14 +21,22 @@ def vlan(ssh):
     ssh.send_config_set(vlanok)
 
 
+def jelszoallitas(jelszo):
+    konpass = ("line console 0",
+               "password konJelszo"
+               )
+    jelszo.send_config_set(konpass)
 
 
 try:
     with ConnectHandler(**login_adatok)as kapcsolat:
         vlan(kapcsolat)
         print(kapcsolat.send_command("sh vl br"))
+        
+        jelszoallitas(kapcsolat)
+        print(kapcsolat.send_command("sh run"))
+
 
 except Exception as ex:
     print(f"Csatlakozási hiba: {ex}")
-
 

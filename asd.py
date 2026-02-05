@@ -26,7 +26,7 @@ def vlan(ssh):
 try:
     with ConnectHandler(**login_adatok)as kapcsolat:
         vlan(kapcsolat)
-
+        print(kapcsolat.send_command("sh vl br"))
 
 except Exception as ex:
     print(f"Csatlakozási hiba: {ex}")

@@ -27,6 +27,30 @@ def jelszoallitas(jelszo):
                )
     jelszo.send_config_set(konpass)
 
+def intdb(ssh):
+    intlista2 = []
+    intlista3 = []
+    intlista4 = []
+    interface = ssh.send_command("sh run | inc Ethernet")
+    interfacelista = interface.split("\n")
+    for i in range(len(interfacelista)):
+        intlista2.append(interfacelista[i].split(" ")[1])
+    for i in range(len(intlista2)):
+        intlista3.append(intlista2[i].split("/")[0])
+    for i in range(len(intlista3)):
+        intlista4.append(intlista3[i][:-1])
+    #print(intlista4)
+    asd = intlista4[1]
+    db = 0
+    for i in range(len(intlista4)):
+        if intlista4[i] == asd:
+            db += 1
+        else:
+            print(asd,db)
+            asd = intlista4[i]
+            db = 1
+    print(asd,db)
+
 
 try:
     with ConnectHandler(**login_adatok)as kapcsolat:
@@ -36,7 +60,7 @@ try:
         jelszoallitas(kapcsolat)
         print(kapcsolat.send_command("sh run"))
 
+        intdb(kapcsolat)
 
 except Exception as ex:
     print(f"Csatlakozási hiba: {ex}")
-

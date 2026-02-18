@@ -64,3 +64,7 @@ try:
 
 except Exception as ex:
     print(f"Csatlakozási hiba: {ex}")
+
+def konzol_jelszo():
+    with open("konzol.txt")as runconf:
+        

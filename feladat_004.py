@@ -23,7 +23,7 @@ try:
                 kapcsolat.send_config_set(f"enable password {ujjelszo}")
                 print("A jelszó beéllítása megtörtént.")
             else:
-                print("MEgfelelő az enable jelszó")
+                print("Megfelelő az enable jelszó")
                 
         konzol = kapcsolat.send_command("sh run | section line con")
         konzol = konzol.split("\n")
@@ -31,7 +31,7 @@ try:
         for i in konzol:
             if i.strip().startswith('password'):
                 if len(i.split(' ')[-1]) < 8:
-                    print("Az konzol jelszó nem megfelelő hosszúságú.")
+                    print("A konzol jelszó nem megfelelő hosszúságú.")
                     
                     ujjelszo2 = input("Adj meg egy legalább 8 karakterből álló jelszót: ")
                 
@@ -39,17 +39,17 @@ try:
                         ujjelszo2 = input("Adj meg egy legalább 8 karakterből álló jelszót: ")
                 
                     kapcsolat.send_config_set(["line con 0" , f"password {ujjelszo2}"])
-                    print("A jelszó beéllítása megtörtént.")
+                    print("A jelszó beállítása megtörtént.")
                 else:
-                    print("MEgfelelő az konzol jelszó")   
+                    print("Megfelelő a konzol jelszó")   
         #--------------------
         vty = kapcsolat.send_command("sh run | section line vty")
         vty = vty.split("\n")
         print(vty)
-        for i in konzol:
+        for i in vty:
             if i.strip().startswith('password'):
                 if len(i.split(' ')[-1]) < 8:
-                    print("Az konzol jelszó nem megfelelő hosszúságú.")
+                    print("A vty jelszó nem megfelelő hosszúságú.")
                     
                     ujjelszo2 = input("Adj meg egy legalább 8 karakterből álló jelszót: ")
                 
@@ -57,9 +57,9 @@ try:
                         ujjelszo2 = input("Adj meg egy legalább 8 karakterből álló jelszót: ")
                 
                     kapcsolat.send_config_set(["line con 0" , f"password {ujjelszo2}"])
-                    print("A jelszó beéllítása megtörtént.")
+                    print("A jelszó beállítása megtörtént.")
                 else:
-                    print("MEgfelelő az konzol jelszó")      
+                    print("Megfelelő a vty jelszó")
         
             
 except Exception as ex:

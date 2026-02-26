@@ -2,7 +2,7 @@ ena
 conf t
 hostname R-PB
 int g0/0/0
-ip add 172.162.219.12 255.255.255.252
+ip add 192.168.40.219 255.255.255.0
 no shut
 exit
 ip domain-name SSH.hu

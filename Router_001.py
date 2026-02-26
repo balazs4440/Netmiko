@@ -11,10 +11,12 @@ Router = {
 try:
     with ConnectHandler(**Router) as kapcsolat:
 
-        neighbour = kapcsolat.send_command("sh ip ospf neig")
-        neighbour = neighbour.strip().split("\n")[1:]
+        neighbor = kapcsolat.send_command("sh ip ospf neig")
+        neighbor = neighbor.strip().split("\n")[1:]
         
-        print(len(neighbour),"szomszéd található a hálózaton.")
+        print(len(neighbor),"szomszéd található a hálózaton.")
+        
+        
         
         
 except Exception as ex:

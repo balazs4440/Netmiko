@@ -66,4 +66,4 @@ try:
          
         
 except Exception as ex:
-    print(f"Csatlakozási hiba: {ex}")
+    print(f"Csatlakozási hiba: {ex}")     

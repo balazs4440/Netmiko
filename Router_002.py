@@ -70,7 +70,14 @@ try:
         valt5 = mask.strip().split('.')
     
     print(vlan,ip,mask)
+    """sendelni=("int g0/0." +id,
+              "encapsulation dot1q" +id,
+              "ip add" +ip +mask,
+              "no sh")
     
+    kapcsolat.send_config_set(sendelni)"""
+    
+    kapcsolat.send_command("cop ru tftp 192.168.40.219")
     
 except Exception as ex:
     print(f"Csatlakozási hiba: {ex}")

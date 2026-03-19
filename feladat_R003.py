@@ -15,7 +15,11 @@ try:
         print("Az eszköz", cucc,"ideje megy")
         
         off = (kapcsolat.send_command("sh ip in br | inc down"))
-        print(off)
+        interface_adatok = off.split("\n")
+        print("Lekapcsolt interfacek:")
+        for interface in interface_adatok:
+            print(f"\t{interface.split(" ")[0]}")
+
         
         küldeni=["interface loopback 100",
                 "ip add 10.10.10.10 255.255.255.0",

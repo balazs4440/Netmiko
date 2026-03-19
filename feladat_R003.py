@@ -10,11 +10,18 @@ Router = {
 
 try:
     with ConnectHandler(**Router) as kapcsolat:
-        uptime = input(kapcsolat.send_command("sh ver | inc uptime"))
-        print(uptime)
+        uptime = (kapcsolat.send_command("sh ver | inc uptime"))
+        cucc = uptime.split(" ")[-2:]
+        print("Az eszköz", cucc,"ideje megy")
         
-        off = input(kapcsolat.send_command("sh ip in br | inc down"))
+        off = (kapcsolat.send_command("sh ip in br | inc down"))
         print(off)
+        
+        küldeni=["interface loopback 100",
+                "ip add 10.10.10.10 255.255.255.0",
+                "no sh"]
+        
+        kapcsolat.send_config_set(küldeni)
         
 except Exception as ex:
     print(f"Csatlakozási hiba: {ex}")
